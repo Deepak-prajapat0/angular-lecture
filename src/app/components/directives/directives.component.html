@@ -1,0 +1,34 @@
+<!--  *ngIf -->
+
+<div *ngIf="posts.length > 0; then postList else noPost"></div>
+<ng-template #postList>
+    post list
+</ng-template>
+<ng-template #noPost>
+     no post
+</ng-template>
+
+
+
+<!-- *ngSwitch -->
+
+
+<ul class="flex flex-row gap-6" >
+    <li class="p-2 w-18 border cursor-pointer"
+    [class.rounded-2xl]="'map'"
+    >
+    <a (click)="viewMode='map'">Map</a>
+</li>
+    <li class="p-2 w-18 border cursor-pointer"
+    [class.rounded-2xl]="'list'"
+    >
+    <a (click)="viewMode='list'">List</a>
+</li>
+</ul>
+
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'">Map view</div>
+    <div *ngSwitchCase="'list'">List view</div>
+    <div *ngSwitchDefault="">default view</div>
+
+</div>

@@ -1,9 +1,19 @@
 <p>favorite works!</p>
 <span
   ><i
-  (click)="onClick()"
-    class="fa-regular fa-star p-4 text-2xl"
+    (click)="onClick()"
+    class="fa-star p-4 text-[10rem]"
     [class.fa-solid]="isFavorite"
     [class.fa-regular]="!isFavorite"
   ></i>
 </span>
+
+<span
+  ><i
+  (click)="like()"
+    class="fa-heart p-4 text-[10rem]"
+    [class.fa-solid]="isLiked"
+    [class.fa-regular]="!isLiked"
+  ></i
+></span>
+<span>{{ likesCount }}</span>
