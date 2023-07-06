@@ -1,34 +1,59 @@
 <!--  *ngIf -->
 
-<div *ngIf="posts.length > 0; then postList else noPost"></div>
-<ng-template #postList>
-    post list
-</ng-template>
-<ng-template #noPost>
-     no post
-</ng-template>
-
-
+<div *ngIf="posts.length > 0; then postList; else noPost"></div>
+<ng-template #postList> post list </ng-template>
+<ng-template #noPost> no post </ng-template>
 
 <!-- *ngSwitch -->
 
-
-<ul class="flex flex-row gap-6" >
-    <li class="p-2 w-18 border cursor-pointer"
-    [class.rounded-2xl]="'map'"
-    >
-    <a (click)="viewMode='map'">Map</a>
-</li>
-    <li class="p-2 w-18 border cursor-pointer"
-    [class.rounded-2xl]="'list'"
-    >
-    <a (click)="viewMode='list'">List</a>
-</li>
+<ul class="flex flex-row gap-6">
+  <li class="p-2 w-18 border cursor-pointer" [class.rounded-2xl]="'map'">
+    <a (click)="viewMode = 'map'">Map</a>
+  </li>
+  <li class="p-2 w-18 border cursor-pointer" [class.rounded-2xl]="'list'">
+    <a (click)="viewMode = 'list'">List</a>
+  </li>
 </ul>
 
 <div [ngSwitch]="viewMode">
-    <div *ngSwitchCase="'map'">Map view</div>
-    <div *ngSwitchCase="'list'">List view</div>
-    <div *ngSwitchDefault="">default view</div>
-
+  <div *ngSwitchCase="'map'">Map view</div>
+  <div *ngSwitchCase="'list'">List view</div>
+  <div *ngSwitchDefault="">default view</div>
 </div>
+
+
+<!-- ngFor and change detection -->
+
+<div class="p-2 m-auto my-2 w-96 border border-gray-200" >
+  <div class="flex flex-row gap-4 p-2">
+    <button (click)="loadCourse()" class="p-2 border border-sky-500 rounded-xl">
+      load course
+    </button>
+    <button (click)="onAdd()" class="p-2 border border-sky-500 rounded-xl">
+      Add new Course
+    </button>
+  </div>
+
+  <h2>Course list</h2>
+  <ul>
+    <!-- ngstyle for providing multiple style in one element -->
+    <li
+      *ngFor="let course of courses; trackBy: trackCourse"
+        [ngStyle]="{
+            'background-color':'lightblue',
+            'border-radius':'1rem',
+            'margin':'5px'
+        }"
+      class="p-3 flex flex-row gap-3"
+    >
+      {{ course.name }}
+      <button
+        class="border p-1 px-2 bg-sky-700 text-white rounded-lg"
+        (click)="onRemove(course)"
+      >
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>
+

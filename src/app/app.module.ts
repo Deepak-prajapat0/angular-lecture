@@ -5,12 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { DirectivesComponent } from './components/directives/directives.component';
+import { InputFormatDirective } from './components/input-format.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     FavoriteComponent,
     DirectivesComponent,
+    InputFormatDirective,
+
   ],
   imports: [
     BrowserModule,
