@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { DirectivesComponent } from './components/directives/directives.component';
 import { InputFormatDirective } from './components/input-format.directive';
+import { ZippyComponent } from './components/zippy/zippy.component';
+import { ContactFormComponent } from './components/registerForm/registerForm.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveformComponent } from './components/reactiveForm/reactiveForm.component';
+
 
 @NgModule({
   declarations: [
@@ -13,11 +18,17 @@ import { InputFormatDirective } from './components/input-format.directive';
     FavoriteComponent,
     DirectivesComponent,
     InputFormatDirective,
+    ZippyComponent,
+    ContactFormComponent,
+    ReactiveformComponent,
+
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

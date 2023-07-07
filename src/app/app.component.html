@@ -1,6 +1,19 @@
 <p>Lorem ipsum dolor sit.</p>
 <favorite [isSelected]="tweet.isFavorite" (change)="onFavoriteChange($event)" [likesCount]="tweet.likesCount"></favorite>
 <directives></directives>
-<input type="text" appInputFormat="'lowercase'"/>
+<div class="p-12 m-4 flex flex-row gap-4 justify-center border">
+    <label for="text">Enter input here</label>
+    <input type="text" class="p-1 border" placeholder="enter input" [appInputFormat]="'uppercase'" />
 
+</div>
+<zippy title="shipping details">
+    shipping details content
+</zippy>
+<br>
+<br>
+<contact-form></contact-form>
+<br>
+<h1 class=" p-2 text-center text-2xl border">Course Form in reactive form</h1>
+<br>
+<reactiveForm></reactiveForm>
 

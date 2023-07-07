@@ -1,0 +1,8 @@
+<div>
+    <form [formGroup]="form"  class="w-[26rem] m-auto border" (ngSubmit)="username">
+        <input type="text" formControlName="username">
+        <span *ngIf="username?.touched && username?.dirty">Enter valid username</span>
+        <input type="text" formControlName="password">
+       <button>submit</button>
+    </form>
+</div>

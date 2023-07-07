@@ -1,0 +1,21 @@
+<div class=" m-2 my-6 h-32">
+    <div (click)="toggle()" class="p-4 border">
+        {{title}}
+
+        <span>
+            <i class="fa-sharp fa-solid float-right cursor-pointer " [class.fa-caret-down]="!isExpended"
+            [ngClass]="{
+                'fa-caret-up':'isExpended',
+                'fa-caret-down':'!isExpended'
+            }"
+            
+            ></i>
+        </span>
+    </div>
+    <div *ngIf="isExpended" class="p-4 border">
+        <ng-content></ng-content>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex, minus corporis dolores veritatis cupiditate debitis in facilis nobis animi.
+            
+        </p>
+    </div>
+</div>
