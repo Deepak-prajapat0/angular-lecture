@@ -11,11 +11,18 @@ export class ReactiveformComponent {
     username: new FormControl('',[
       Validators.required,
       Validators.minLength(3),
+      Validators.pattern('[a-zA-Z]+$'),
       usernameValidators.cannotContainSpace
     ]),
-    password:new FormControl('',Validators.required)
+    password:new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('[a-zA-Z0-9]+$')])
   })
-  get username(){
-    return this.form.get('username')
+  onSubmit(){
+    console.log(this.form)
   }
+  get username(){
+   return this.form.get('username')
+  } 
+  get password(){
+   return this.form.get('password')
+  } 
 }

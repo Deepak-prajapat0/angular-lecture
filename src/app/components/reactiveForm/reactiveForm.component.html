@@ -1,8 +1,24 @@
 <div>
-    <form [formGroup]="form"  class="w-[26rem] m-auto border" (ngSubmit)="username">
-        <input type="text" formControlName="username">
-        <span *ngIf="username?.touched && username?.dirty">Enter valid username</span>
-        <input type="text" formControlName="password">
-       <button>submit</button>
+    <form [formGroup]="form"  class="w-[26rem] h-48 m-auto border flex flex-col gap-3" (ngSubmit)="onSubmit()">
+        <div class="input-controller">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" class="border rounded-sm outline-sky-600">
+            <div class="error-box flex flex-col text-xs" >
+                <span *ngIf="username && username.touched && username.errors?.['required'] ">Enter username</span>
+                <span *ngIf="username && username.touched && username.errors?.['minlength'] ">Username length should be min 3</span>
+                <span *ngIf="username && username.touched && username.errors?.['pattern'] ">Enter valid username</span>
+            </div>
+        </div>
+        <div class="input-controller">
+            <label for="password">Password</label>
+            <input type="text" formControlName="password" class="border rounded-sm outline-sky-600" >
+            <div class="error-box flex flex-col text-xs">
+                <span *ngIf="password && password.touched && password.errors?.['required'] ">Enter password</span>
+                <span *ngIf="password && password.touched && password.errors?.['minlength'] ">password length should be min 6</span>
+                <span *ngIf="password && password.touched && password.errors?.['pattern'] ">password should be alphanumeric </span>
+            </div>
+        </div>
+        
+        <button  [disabled]="form.status === 'INVALID'">submit</button>
     </form>
 </div>

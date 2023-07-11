@@ -10,6 +10,10 @@ import { ZippyComponent } from './components/zippy/zippy.component';
 import { ContactFormComponent } from './components/registerForm/registerForm.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveformComponent } from './components/reactiveForm/reactiveForm.component';
+import { TodolistComponent } from './components/todolist/todolist.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { HttppostComponent } from './components/httpposts/httppost.component';
+import {HttpClientModule} from '@angular/common/http'
 
 
 @NgModule({
@@ -21,6 +25,9 @@ import { ReactiveformComponent } from './components/reactiveForm/reactiveForm.co
     ZippyComponent,
     ContactFormComponent,
     ReactiveformComponent,
+    TodolistComponent,
+    ChangepasswordComponent,
+    HttppostComponent,
 
 
   ],
@@ -28,9 +35,11 @@ import { ReactiveformComponent } from './components/reactiveForm/reactiveForm.co
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+  
   ],
-  providers: [],
+  providers: [  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,0 +1,19 @@
+<h1 class="text-center text-3xl">Posts from server</h1>
+<div class="p-4 text-center">
+    <label for="text"> Enter post title</label>
+<input type="text" class="p-2 mx-2 border outline-sky-400" (keyup.enter)="createPost(title)" #title>
+</div>
+<ul class="flex flex-col gap-2">
+    <li *ngFor="let post of posts" class="p-2 border"  (click)="updatePost(post)">
+        {{post.title}}
+        <button (click)="deletePost(post)" class="mr-6 float-right">delete</button>
+    </li>
+</ul>
+
+
+9:30 - 11:00 - angular (reactive form validation)
+11:00 - 12:30 - lecture ( async operation , formArray)
+12:30 - 2:00 - lecture practice
+2:45 -  4:00 - angular (todo app and password form with validation)
+4-00 - 5:00 - lecture (http requests)
+5:00 - 7:05 - lecture practice and upload on github
