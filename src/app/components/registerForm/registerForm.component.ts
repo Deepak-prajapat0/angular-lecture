@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'contact-form',
   templateUrl: './registerForm.component.html'
 })
-export class ContactFormComponent {
+export class RegisterForm {
 
   form={
     name:'',

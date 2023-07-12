@@ -3,8 +3,8 @@
     <form>
         <input type="text" class="p-1 border-b border-blue-400 outline-0" placeholder="Press Enter to add" (keyup.enter)="addTodo(todo)" #todo >
     </form>
-    <ul *ngIf="todos.controls.length > 1">
-        <li *ngFor="let todo of todos.controls ;index as i" (click)="removeTodo(i)" >
+    <ul>
+        <li *ngFor="let todo of todos.controls ;index as i" (click)="removeTodo(i)" class="m-1 border" >
            {{todo.value}}
         </li>
     </ul>

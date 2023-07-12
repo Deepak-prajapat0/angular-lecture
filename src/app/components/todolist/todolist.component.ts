@@ -11,6 +11,7 @@ export class TodolistComponent {
   })
 
   get todos(){
+    console.log(localStorage.getItem('todo'))
     return this.form.get('todos') as FormArray
   }
   

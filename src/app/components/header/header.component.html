@@ -1,0 +1,9 @@
+<header class="p-3 bg-gray-900 text-white">
+    <nav class="w-screen overflow-x-auto">
+        <ul class="flex flex-row gap-3">
+            <li *ngFor="let link of links" class="w-max border p-1 px-2" >
+                <a routerLink="{{link.link}}" class="w-max block">{{link.name}}</a>
+            </li>
+        </ul>
+    </nav>
+</header>

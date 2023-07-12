@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostserviceService } from './postservice.service';
+// import { AppError } from './appError';
 
 @Component({
   selector: 'httpposts',
@@ -11,28 +12,42 @@ export class HttppostComponent implements OnInit{
   ngOnInit(): void {
       this.service.getPosts().subscribe((res)=>{
         this.posts = res;
+      },error=>{
+        console.log(error)
       })
   }
 
   createPost(input:HTMLInputElement){
-    let post = {id:input.value}
+    let post = {title:input.value}
+    this.posts.splice(0,0,post)
     input.value=''
     this.service.addPosts(post).subscribe(res=>{
-      // post['id'] = res
-      this.posts.splice(0,0,res)
+      this.posts['id'] = res
+    },(error)=>{
+      this.posts.splice(0,1);
+      // if(error instanceof BadRequestError)
     })
   }
 
   updatePost(post:any){
     this.service.updateData(post).subscribe(res=>{
-      console.log(res)
+      alert('post updated')
+    },error=>{
+      alert(error.message)
     })
   }
 
   deletePost(post:any){
+    let index = this.posts.indexOf(post);
+    this.posts.splice(index,1)
+
     this.service.deleteData(post).subscribe(res=>{
-      let index = this.posts.indexOf(post);
-      this.posts.splice(index,1)
+      if(index === -1){
+        this.posts.splice(index,1)
+        return alert('something wrong')
+      }
+
+
     })
   }
 

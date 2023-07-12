@@ -11,6 +11,7 @@
       <input
         type="text"
         name="name"
+        id="name"
         required
         autocomplete="off"
         [(ngModel)]="form.name"
@@ -18,7 +19,7 @@
         minlength="3"
         maxlength="22"
         [ngClass]="{ error: name.errors && name.touched }"
-        class="border rounded-sm outline-sky-600"
+        class="p-1 px-2 border rounded-md outline-sky-600  hover:border-sky-400"
       />
     <span *ngIf="name.errors && name.touched" class="text-red-600 text-[11px]">
         <span *ngIf="name.errors['required']"> Enter name</span>
@@ -36,6 +37,7 @@
       <input
         type="email"
         name="email"
+        id="email"
         required
         minlength="10"
         maxlength="32"
@@ -43,7 +45,7 @@
         [(ngModel)]="form.email"
         #email="ngModel"
         [ngClass]="{ error: email.errors && email.touched }"
-        class="border rounded-sm outline-sky-600"
+        class="p-1 px-2 border rounded-md outline-sky-600  hover:border-sky-400 "
       />
     <span *ngIf="email.errors && email.touched" class="text-red-600 text-[11px]">
         <span *ngIf="email.errors['required']"> Enter email</span>
@@ -64,7 +66,7 @@
         [(ngModel)]="form.password"
         #password="ngModel"
         [ngClass]="{ error: password.errors && password.touched }"
-        class="border rounded-sm outline-sky-600"
+        class="p-1 px-2 border rounded-md outline-sky-600  hover:border-sky-400"
       />
     <span *ngIf="password.errors && password.touched" class="text-red-600 text-[11px]">
         <span *ngIf="password.errors['required']"> Enter password</span>
@@ -77,7 +79,7 @@
 <!-- select option  -->
 <div class="form-controller flex flex-col h-16">
   <label for="select" class="form-label">Select option</label>
-  <select name="role" required [(ngModel)]="form.role"  #role="ngModel" [ngClass]="{error:role.errors && role.touched}">
+  <select name="role" id="select" required [(ngModel)]="form.role"  #role="ngModel" class="p-1 px-2 bg-white border rounded-md outline-sky-600  hover:border-sky-400" [ngClass]="{error:role.errors && role.touched}">
     <option value=""></option>
     <option value="admin">Admin</option>
     <option value="user">User</option>
@@ -90,7 +92,7 @@
 <!-- submit button -->
     <button
       type="submit"
-      class="p-2 px-4 text-white bg-sky-600 rounded-md"
+      class="p-2 px-4 text-white bg-sky-600 rounded-dd"
       [disabled]="register.form.status === 'INVALID'"
     >
       Submit

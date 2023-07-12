@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ZippyComponent {
   @Input('title') title:string='';
-  isExpended:boolean=true;
+  isExpended:boolean=false;
   toggle(){
     this.isExpended = !this.isExpended;
   }
