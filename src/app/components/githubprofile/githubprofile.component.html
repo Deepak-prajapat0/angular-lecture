@@ -1,0 +1,15 @@
+<div class="w-[32rem] m-auto flex flex-col gap-4 border">
+    <h1 class="p-3 text-center">Github Followers</h1>
+    <div class="flex flex-col gap-4">
+        <div *ngFor="let follower of user" class="p-3 flex flex-row gap-2 border">
+            <img src="{{follower.avatar_url}}" alt="" class="h-16 rounded-full">
+            <div class="flex flex-col gap-2">
+                <span>{{follower.login}}</span>
+                <span>{{follower.html_url}}</span>
+            </div>
+        </div>
+    </div>
+    <span >
+        year : {{year}}
+    </span>
+</div>

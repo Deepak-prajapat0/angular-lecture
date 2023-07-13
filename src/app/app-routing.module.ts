@@ -8,6 +8,9 @@ import { TodolistComponent } from './components/todolist/todolist.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 import { ZippyComponent } from './components/zippy/zippy.component';
 import { HttppostComponent } from './components/httpposts/httppost.component';
+import { GithubprofileComponent } from './components/githubprofile/githubprofile.component';
+import { WrongurlComponent } from './components/wrongurl/wrongurl.component';
+import { authGuard } from './components/authentication/auth.guard';
 
 const routes: Routes = [
   {path:"",component:FavoriteComponent},
@@ -17,7 +20,11 @@ const routes: Routes = [
   {path:"todo",component:TodolistComponent},
   {path:"change-password",component:ChangepasswordComponent},
   {path:"zippy",component:ZippyComponent},
-  {path:"http",component:HttppostComponent},
+  {path:"http" ,canActivate:[authGuard], component:HttppostComponent},
+  {path:"github/followers",component:GithubprofileComponent},
+  {path:"github/followers/:year/:date",component:GithubprofileComponent},
+  {path:"login",component:ReactiveformComponent},
+  {path:"**",component:WrongurlComponent},
 ];
 
 @NgModule({

@@ -1,9 +1,13 @@
 <header class="p-3 bg-gray-900 text-white">
-    <nav class="w-screen overflow-x-auto">
-        <ul class="flex flex-row gap-3">
-            <li *ngFor="let link of links" class="w-max border p-1 px-2" >
-                <a routerLink="{{link.link}}" class="w-max block">{{link.name}}</a>
+    <nav class="w-full flex flex-row justify-between ">
+        <ul class="flex flex-row gap-3 overflow-x-auto">
+            <li *ngFor="let link of links" class="w-max p-1 px-2" >
+                <a routerLink="{{link.link}}" class="w-max block  border-b ">{{link.name}}</a>
             </li>
+        </ul>
+        <ul class="p-1 mr-2 flex flex-row gap-2">
+            <li class="p-1 px-2 border border-white rounded-md hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in"><a routerLink="login">Login</a></li>
+            <li class="p-1 px-2 border border-white rounded-md hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in">Logout</li>
         </ul>
     </nav>
 </header>

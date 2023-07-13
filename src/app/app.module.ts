@@ -17,6 +17,10 @@ import {HttpClientModule} from '@angular/common/http'
 import { PostserviceService } from './components/httpposts/postservice.service';
 import { AppErrorHandler } from './components/httpposts/appErrorHandler';
 import { HeaderComponent } from './components/header/header.component';
+import { GithubprofileComponent } from './components/githubprofile/githubprofile.component';
+import { WrongurlComponent } from './components/wrongurl/wrongurl.component';
+import { RouterComponent } from './components/router/router.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 // import { DataService } from './components/httpposts/dataService.service';
 
 
@@ -32,7 +36,11 @@ import { HeaderComponent } from './components/header/header.component';
     TodolistComponent,
     ChangepasswordComponent,
     HttppostComponent,
-    HeaderComponent
+    HeaderComponent,
+    GithubprofileComponent,
+    WrongurlComponent,
+    RouterComponent,
+    AuthenticationComponent
 
 
   ],

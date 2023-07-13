@@ -1,7 +1,8 @@
 <app-header></app-header>
-<div class="main p-3 min-h-screen">
+<div class="main p-3 pt-6 min-h-screen">
     <router-outlet></router-outlet>
   </div>
+  <router></router>
   <div class="p-12 m-4 flex flex-row gap-4 justify-center border">
     <label for="input">Enter input here</label>
     <input type="text" id="input" class="p-1 border" placeholder="enter input" [appInputFormat]="'uppercase'" />

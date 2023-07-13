@@ -1,5 +1,5 @@
 <div>
-    <form [formGroup]="form"  class=" m-auto p-4 w-[26rem] min-h-48 max-h-max border flex flex-col gap-4" (ngSubmit)="onSubmit()">
+    <form [formGroup]="form"  class=" m-auto p-4 w-[26rem] min-h-48 max-h-max flex flex-col gap-4 border rounded-md " (ngSubmit)="onSubmit()">
         <div class="input-controller" class="px-4 h-16 flex flex-col">
             <label for="username">Username</label>
             <input type="text" id="username" formControlName="username" class=" p-1 px-2 border border-sky-400 rounded-md outline-sky-500">

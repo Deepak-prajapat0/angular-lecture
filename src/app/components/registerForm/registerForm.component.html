@@ -1,102 +1,69 @@
-<div class="w-[32rem] m-auto my-6 p-4 border">
+<div class="w-[32rem] h-auto m-auto my-6 p-4 border">
   <h2 class="text-center">Register here</h2>
-  <form
-    #register="ngForm"
-    (ngSubmit)="registerFn(form)"
-    class="flex flex-col gap-6"
-  >
-  <!-- name -->
+  <br>
+  <p class=" text-[11px] text-red-600 after:content-['_*']" >All fields are mandetory</p>
+  <form #register="ngForm" (ngSubmit)="registerFn(form)" class="flex flex-col gap-6">
+    <!-- name -->
     <div class="form-controller flex flex-col  h-16">
       <label for="name" class="form-label">Name</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        required
-        autocomplete="off"
-        [(ngModel)]="form.name"
-        #name="ngModel"
-        minlength="3"
-        maxlength="22"
-        [ngClass]="{ error: name.errors && name.touched }"
-        class="p-1 px-2 border rounded-md outline-sky-600  hover:border-sky-400"
-      />
-    <span *ngIf="name.errors && name.touched" class="text-red-600 text-[11px]">
+      <input type="text" name="name" id="name" required autocomplete="off" [(ngModel)]="form.name" #name="ngModel"
+        minlength="3" maxlength="22" [ngClass]="{ error: name.errors && name.touched }"
+        class="p-1 px-2 border rounded-md outline-sky-600  hover:border-sky-400" />
+      <span *ngIf="name.errors && name.touched" class="text-red-600 text-[11px]">
         <span *ngIf="name.errors['required']"> Enter name</span>
         <span *ngIf="name.errors['maxlength']">
-            Maximum 22 characters are allowed
+          Maximum 22 characters are allowed
         </span>
         <span *ngIf="name.errors['minlength']">
-            name should be min 3 character
+          name should be min 3 character
         </span>
-    </span>
+      </span>
     </div>
-<!-- email -->
+    <!-- email -->
     <div class="form-controller flex flex-col h-16">
       <label for="email" class="form-label">Email</label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        required
-        minlength="10"
-        maxlength="32"
-        autocomplete="off"
-        [(ngModel)]="form.email"
-        #email="ngModel"
-        [ngClass]="{ error: email.errors && email.touched }"
-        class="p-1 px-2 border rounded-md outline-sky-600  hover:border-sky-400 "
-      />
-    <span *ngIf="email.errors && email.touched" class="text-red-600 text-[11px]">
+      <input type="email" name="email" id="email" required minlength="10" maxlength="32" autocomplete="off" [pattern]="emailRegex"
+        [(ngModel)]="form.email" #email="ngModel" [ngClass]="{ error: email.errors && email.touched }"
+        class="p-1 px-2 border rounded-md outline-sky-600  hover:border-sky-400 " />
+      <span *ngIf="email.errors && email.touched" class="text-red-600 text-[11px]">
         <span *ngIf="email.errors['required']"> Enter email</span>
         <span *ngIf="email.errors['minlength']">
-            Enter valid email address
+          Enter valid email address
         </span>
-    </span>
+      </span>
     </div>
-<!-- password -->
+    <!-- password -->
     <div class="form-controller flex flex-col h-16">
       <label for="password" class="form-label">Enter password</label>
-      <input
-        type="password"
-        name="password"
-        required
-        minlength="6"
-        autocomplete="off"
-        [(ngModel)]="form.password"
-        #password="ngModel"
-        [ngClass]="{ error: password.errors && password.touched }"
-        class="p-1 px-2 border rounded-md outline-sky-600  hover:border-sky-400"
-      />
-    <span *ngIf="password.errors && password.touched" class="text-red-600 text-[11px]">
+      <input type="password" name="password" required minlength="6" autocomplete="off" [(ngModel)]="form.password"
+        #password="ngModel" [ngClass]="{ error: password.errors && password.touched }"
+        class="p-1 px-2 border rounded-md outline-sky-600  hover:border-sky-400" />
+      <span *ngIf="password.errors && password.touched" class="text-red-600 text-[11px]">
         <span *ngIf="password.errors['required']"> Enter password</span>
         <span *ngIf="password.errors['minlength']">
-           Password must be of minimum length 6
+          Password must be of minimum length 6
         </span>
-    </span>
+      </span>
     </div>
-  
-<!-- select option  -->
-<div class="form-controller flex flex-col h-16">
-  <label for="select" class="form-label">Select option</label>
-  <select name="role" id="select" required [(ngModel)]="form.role"  #role="ngModel" class="p-1 px-2 bg-white border rounded-md outline-sky-600  hover:border-sky-400" [ngClass]="{error:role.errors && role.touched}">
-    <option value=""></option>
-    <option value="admin">Admin</option>
-    <option value="user">User</option>
-  </select>
-<span *ngIf="role.errors && role.touched" class="text-red-600 text-[11px]">
-    <span *ngIf="role.errors['required']"> Select role</span>
-</span>
-</div>
 
-<!-- submit button -->
-    <button
-      type="submit"
-      class="p-2 px-4 text-white bg-sky-600 rounded-dd"
-      [disabled]="register.form.status === 'INVALID'"
-    >
+    <!-- select option  -->
+    <div class="form-controller flex flex-col h-16">
+      <label for="select" class="form-label">Select option</label>
+      <select name="role" id="select" required [(ngModel)]="form.role" #role="ngModel"
+        class="p-1 px-2 bg-white border rounded-md outline-sky-600  hover:border-sky-400"
+        [ngClass]="{error:role.errors && role.touched}">
+        <option value="" class="hover:bg-sky-600 default:bg-none "></option>
+        <option value="admin" class="hover:bg-sky-600 default:bg-none ">Admin</option>
+        <option value="user" class="hover:bg-sky-600 default:bg-none ">User</option>
+      </select>
+      <span *ngIf="role.errors && role.touched" class="text-red-600 text-[11px]">
+        <span *ngIf="role.errors['required']"> Select role</span>
+      </span>
+    </div>
+
+    <!-- submit button -->
+    <button type="submit" [disabled]="register.form.status === 'INVALID'" class="p-2 px-4 text-white bg-sky-600 rounded-md disabled:opacity-40">
       Submit
     </button>
-  </form>
- <p> {{register.value| json }}</p>
+  </form>  
 </div>
