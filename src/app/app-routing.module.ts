@@ -16,14 +16,15 @@ const routes: Routes = [
   {path:"",component:FavoriteComponent},
   {path:"direactive",component:DirectivesComponent},
   {path:"register",component:RegisterForm},
-  {path:"reactive-form",component:ReactiveformComponent},
+  {path:"reactive-form",canActivate:[authGuard],component:ReactiveformComponent},
   {path:"todo",component:TodolistComponent},
   {path:"change-password",component:ChangepasswordComponent},
   {path:"zippy",component:ZippyComponent},
   {path:"http" ,canActivate:[authGuard], component:HttppostComponent},
-  {path:"github/followers",component:GithubprofileComponent},
+  {path:"github/followers",canActivate:[authGuard],component:GithubprofileComponent},
   {path:"github/followers/:year/:date",component:GithubprofileComponent},
   {path:"login",component:ReactiveformComponent},
+  // {path:"login",canActivate:[Guard],component:ReactiveformComponent},
   {path:"**",component:WrongurlComponent},
 ];
 

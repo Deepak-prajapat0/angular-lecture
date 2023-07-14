@@ -1,23 +1,38 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { usernameValidators } from './usernameValidators.component';
-import { authGuard } from '../authentication/auth.guard';
+import { UserService } from './user.service';
+import { LoggerService } from 'src/app/logger-service.service';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'reactiveForm',
   templateUrl: './reactiveForm.component.html'
 })
 export class ReactiveformComponent {
+
+  constructor(private userService:UserService,private loggerService:LoggerService,private router:Router)
+  {
+    if (this.loggerService.isLoggedin || localStorage.getItem('token')) {
+      this.router.navigate(['/'])
+    }
+  }
+
+
+ 
   form = new FormGroup({
     username: new FormControl('',[
       Validators.required,
       Validators.minLength(3),
       Validators.pattern('[a-zA-Z]+$')
     ]),
-    password:new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,}')])
+    password:new FormControl('',[Validators.required,Validators.minLength(6)])
   })
   onSubmit(){
-    console.log(this.form)
+    this.userService.login(this.form.value)
+  }
+  isLogin(){
+   this.userService.login(this.form.value)
   }
   get username(){
    return this.form.get('username')
@@ -25,5 +40,9 @@ export class ReactiveformComponent {
   get password(){
    return this.form.get('password')
   } 
-  user: boolean = false;
+  
 }
+
+
+// username:"kminchelle"
+// password:"0lelplR"
