@@ -11,6 +11,7 @@ import { HttppostComponent } from './components/httpposts/httppost.component';
 import { GithubprofileComponent } from './components/githubprofile/githubprofile.component';
 import { WrongurlComponent } from './components/wrongurl/wrongurl.component';
 import { authGuard } from './components/authentication/auth.guard';
+import { FirebaseComponent } from './components/firebase/firebase.component';
 
 const routes: Routes = [
   {path:"",component:FavoriteComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:"github/followers",canActivate:[authGuard],component:GithubprofileComponent},
   {path:"github/followers/:year/:date",component:GithubprofileComponent},
   {path:"login",component:ReactiveformComponent},
+  {path:"firebase",component:FirebaseComponent},
   // {path:"login",canActivate:[Guard],component:ReactiveformComponent},
   {path:"**",component:WrongurlComponent},
 ];

@@ -1,16 +1,18 @@
-<h1 class="text-center text-3xl">Posts from server</h1>
+<div @slideAnimation>
+    <h1 class="text-center text-3xl">Posts from server</h1>
 <div class="p-4 text-center">
     <label for="title"> Enter post title</label>
 <input type="text" id="title" class="p-2 mx-2 border outline-sky-400 hover:border-sky-400" (keyup.enter)="createPost(title)" #title>
 </div>
-<ul class="w-max m-auto flex flex-col gap-2">
-    <li *ngFor="let post of posts" class="p-2 border"  >
+<div class="w-max m-auto flex flex-col gap-2">
+    <button *ngFor="let post of posts" class="p-2 border"  >
         {{post.title}}
         <button (click)="deletePost(post)" class="p-1 px-2 mr-6 float-right rounded-md border border-sky-600 hover:bg-sky-600 hover:text-white">delete</button>
         <button (click)="updatePost(post)" class="p-1 px-2 mr-6 float-right rounded-md border border-sky-600 hover:bg-sky-600 hover:text-white">update</button>
-    </li>
-</ul>
+    </button>
+</div>
 
+</div>
 
 <!-- 
 

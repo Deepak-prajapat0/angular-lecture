@@ -14,7 +14,6 @@ import { TodolistComponent } from './components/todolist/todolist.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 import { HttppostComponent } from './components/httpposts/httppost.component';
 import {HttpClientModule} from '@angular/common/http'
-import { PostserviceService } from './components/httpposts/postservice.service';
 import { AppErrorHandler } from './components/httpposts/appErrorHandler';
 import { HeaderComponent } from './components/header/header.component';
 import { GithubprofileComponent } from './components/githubprofile/githubprofile.component';
@@ -22,6 +21,11 @@ import { WrongurlComponent } from './components/wrongurl/wrongurl.component';
 import { RouterComponent } from './components/router/router.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 // import { DataService } from './components/httpposts/dataService.service';
+import { provideFirebaseApp,getApp,initializeApp } from '@angular/fire/app';
+import {getFirestore,provideFirestore} from '@angular/fire/firestore'
+import { environment } from 'src/environment/environment';
+import { FirebaseComponent } from './components/firebase/firebase.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 
 @NgModule({
@@ -40,7 +44,8 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     GithubprofileComponent,
     WrongurlComponent,
     RouterComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    FirebaseComponent
 
 
   ],
@@ -49,8 +54,10 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
-  
+    HttpClientModule,
+    BrowserAnimationsModule,
+    provideFirebaseApp(()=>initializeApp(environment.firebaseConfig)),
+    provideFirestore(()=>getFirestore())
   ],
   providers: [ AppErrorHandler,{provide:ErrorHandler,useClass:AppErrorHandler} ],
   bootstrap: [AppComponent]

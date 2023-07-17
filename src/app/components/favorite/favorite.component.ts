@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 
+
 @Component({
   selector: 'favorite',
   templateUrl: './favorite.component.html',
@@ -10,13 +11,16 @@ import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angu
 })
 
 
+
 export class FavoriteComponent{
   @Input("isSelected") isFavorite:boolean =false
   @Input("isLiked") isLiked:boolean =false
   @Input("likesCount") likesCount:number=0
   @Output() change = new EventEmitter()
   
+
   onClick(){
+
     this.isFavorite = !this.isFavorite
     this.change.emit({newValue:this.isFavorite})
   }

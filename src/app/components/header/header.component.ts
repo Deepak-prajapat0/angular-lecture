@@ -12,6 +12,7 @@ const routerLinks =[{ name: "Home",link: "/"},
     { name: "change password",link: "/change-password"},
     { name: "http",link: "/http"},
     { name: "Github",link: "/github/followers"},
+    { name: "firebase",link: "/firebase"},
 ]
 
 @Component({

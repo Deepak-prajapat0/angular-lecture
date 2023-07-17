@@ -1,12 +1,12 @@
 import { inject } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
-  Router,
   createUrlTreeFromSnapshot,
 } from '@angular/router';
 import { UserService } from '../reactiveForm/user.service';
 
 export const authGuard = (next: ActivatedRouteSnapshot) => {
+  
 
   let value = inject(UserService).isLoggedIn();
 

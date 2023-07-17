@@ -1,12 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { PostserviceService } from './postservice.service';
-import { pipe } from 'rxjs';
+import { animate, animateChild, query, style, transition, trigger } from '@angular/animations';
 // import { AppError } from './appError';
 
 @Component({
   selector: 'httpposts',
-  templateUrl: './httppost.component.html'
+  templateUrl: './httppost.component.html',
+  animations:[
+    trigger('slideAnimation',[
+      transition(':enter',[
+        style({transform:"scale(.5)",easing:"ease-out"}),
+        animate(500),
+        query('slideAnimation',animateChild())
+      ])
+    ])
+  ]
 })
+
 export class HttppostComponent implements OnInit{
   posts:any;
   constructor(private service:PostserviceService){}

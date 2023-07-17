@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from './user.service';
 import { LoggerService } from 'src/app/logger-service.service';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import {  Router } from '@angular/router';
+
 
 @Component({
   selector: 'reactiveForm',
