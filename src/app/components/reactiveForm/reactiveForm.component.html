@@ -6,7 +6,6 @@
             <div class="error-box flex flex-col text-[11px] text-red-600" >
                 <span *ngIf="username && username.touched && username.errors?.['required'] ">Enter username</span>
                 <span *ngIf="username && username.touched && username.errors?.['minlength'] || username?.errors?.['pattern'] ">Username length should be min 3 and only contains letter</span>
-                <!-- <span *ngIf="username && username.touched && username.errors?.['pattern'] ">Enter valid username</span> -->
             </div>
         </div>
         <div class="input-controller" class="px-4 h-16 flex flex-col">

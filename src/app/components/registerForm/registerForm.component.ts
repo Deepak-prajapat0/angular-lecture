@@ -6,6 +6,14 @@ import { Component } from '@angular/core';
 })
 export class RegisterForm {
 
+  role!: string;
+
+  roles:any[] = [
+    {value:'',viewValue:''},
+    {value: 'user', viewValue: 'User'},
+    {value: 'admin', viewValue: 'Admin'},
+  ];
+
   form={
     name:'',
     email:'',

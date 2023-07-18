@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../reactiveForm/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { RegisterForm } from '../registerForm/registerForm.component';
 
 
 const routerLinks =[{ name: "Home",link: "/"},
@@ -22,8 +24,17 @@ const routerLinks =[{ name: "Home",link: "/"},
 
 export class HeaderComponent {
  links: any[] =routerLinks;
- constructor(private router:Router,private loggerService :UserService){}
+ constructor(private router:Router,private loggerService :UserService,public dialog: MatDialog){}
  loggedIn : any
+
+
+ openDialog() {
+   const dialogRef = this.dialog.open(RegisterForm);
+
+   dialogRef.afterClosed().subscribe(result => {
+     console.log(`Dialog result: ${result}`);
+   });
+ }
 
  ngOnInit(){
     this.router.events.subscribe((val:any)=>{

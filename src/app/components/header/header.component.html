@@ -6,7 +6,7 @@
             </li>
         </ul>
         <ul class="p-1 mr-2 flex flex-row gap-2">
-            <li *ngIf="!loggedIn" class="p-1 px-2 border border-white rounded-md hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in"><a routerLink="reactive-form">Login</a></li>
+            <li *ngIf="!loggedIn" (click)="openDialog()" class="p-1 px-2 border border-white rounded-md hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in">Login</li>
             <li *ngIf="loggedIn" (click)="logout()" class="p-1 px-2 border border-white rounded-md hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in" >Logout</li>
         </ul>
     </nav>

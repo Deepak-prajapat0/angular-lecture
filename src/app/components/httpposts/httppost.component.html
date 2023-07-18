@@ -1,26 +1,23 @@
-<div @slideAnimation>
+<div >
     <h1 class="text-center text-3xl">Posts from server</h1>
 <div class="p-4 text-center">
     <label for="title"> Enter post title</label>
 <input type="text" id="title" class="p-2 mx-2 border outline-sky-400 hover:border-sky-400" (keyup.enter)="createPost(title)" #title>
 </div>
 <div class="w-max m-auto flex flex-col gap-2">
-    <button *ngFor="let post of posts" class="p-2 border"  >
+    <!-- <button *ngFor="let post of posts" class="p-2 border"  >
         {{post.title}}
         <button (click)="deletePost(post)" class="p-1 px-2 mr-6 float-right rounded-md border border-sky-600 hover:bg-sky-600 hover:text-white">delete</button>
         <button (click)="updatePost(post)" class="p-1 px-2 mr-6 float-right rounded-md border border-sky-600 hover:bg-sky-600 hover:text-white">update</button>
-    </button>
-</div>
+    </button> -->
+    <mat-list @slideAnimation >
+        <mat-list-item *ngFor="let post of posts">
+            {{post.title}}
+        </mat-list-item>
+
+    </mat-list>
+
 
 </div>
 
-<!-- 
-
-9:30 - 11:00 - angular (http module)
-11:00 - 12:30 - lecture ( handling errors)
-12:30 - 2:00 - lecture practice
-2:45 -  3:30 - hackerrank
-4-00 - 5:00 - lecture (routing module)
-5:00 - 7:05 - lecture practice and upload on github
-
-https://github.com/Deepak-prajapat0/angular-lecture.git -->
+</div>

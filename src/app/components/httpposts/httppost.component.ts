@@ -9,9 +9,12 @@ import { animate, animateChild, query, style, transition, trigger } from '@angul
   animations:[
     trigger('slideAnimation',[
       transition(':enter',[
-        style({transform:"scale(.5)",easing:"ease-out"}),
-        animate(500),
-        query('slideAnimation',animateChild())
+        style({offset:.2,transform:"scale(.6)",easing:"ease-out"}),
+        animate(500)
+      ]),
+      transition(':leave',[
+        style({transform:"scale(1)",easing:"ease-out"}),
+        animate(500)
       ])
     ])
   ]
@@ -23,7 +26,7 @@ export class HttppostComponent implements OnInit{
   ngOnInit(): void {
       this.service.getPosts().subscribe((res)=>{ 
         this.posts = res;
-      },error=>{
+      },()=>{
         alert("something is wrong")
       })
   }

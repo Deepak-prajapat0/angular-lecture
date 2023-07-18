@@ -25,7 +25,14 @@ import { provideFirebaseApp,getApp,initializeApp } from '@angular/fire/app';
 import {getFirestore,provideFirestore} from '@angular/fire/firestore'
 import { environment } from 'src/environment/environment';
 import { FirebaseComponent } from './components/firebase/firebase.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatListModule} from '@angular/material/list'
+import { MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -57,7 +64,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     HttpClientModule,
     BrowserAnimationsModule,
     provideFirebaseApp(()=>initializeApp(environment.firebaseConfig)),
-    provideFirestore(()=>getFirestore())
+    provideFirestore(()=>getFirestore()),
+    MatListModule,
+    MatIconModule,
+    MatCardModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [ AppErrorHandler,{provide:ErrorHandler,useClass:AppErrorHandler} ],
   bootstrap: [AppComponent]

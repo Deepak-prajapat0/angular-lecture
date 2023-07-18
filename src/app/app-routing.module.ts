@@ -12,11 +12,12 @@ import { GithubprofileComponent } from './components/githubprofile/githubprofile
 import { WrongurlComponent } from './components/wrongurl/wrongurl.component';
 import { authGuard } from './components/authentication/auth.guard';
 import { FirebaseComponent } from './components/firebase/firebase.component';
+import { DialogContentExample } from './components/registerForm/popupForm.component';
 
 const routes: Routes = [
   {path:"",component:FavoriteComponent},
   {path:"direactive",component:DirectivesComponent},
-  {path:"register",component:RegisterForm},
+  // {path:"register",component:DialogContentExample},
   {path:"reactive-form",canActivate:[authGuard],component:ReactiveformComponent},
   {path:"todo",component:TodolistComponent},
   {path:"change-password",component:ChangepasswordComponent},
