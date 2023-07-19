@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../reactiveForm/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterForm } from '../registerForm/registerForm.component';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
 const routerLinks =[{ name: "Home",link: "/"},
@@ -19,7 +20,8 @@ const routerLinks =[{ name: "Home",link: "/"},
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
+  styleUrls:['./header.component.css'],
 })
 
 export class HeaderComponent {

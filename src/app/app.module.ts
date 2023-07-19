@@ -30,9 +30,16 @@ import {MatListModule} from '@angular/material/list'
 import { MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -52,7 +59,8 @@ import {MatSelectModule} from '@angular/material/select';
     WrongurlComponent,
     RouterComponent,
     AuthenticationComponent,
-    FirebaseComponent
+    FirebaseComponent,
+    SidebarComponent,
 
 
   ],
@@ -70,8 +78,14 @@ import {MatSelectModule} from '@angular/material/select';
     MatCardModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatExpansionModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatRadioModule
   ],
   providers: [ AppErrorHandler,{provide:ErrorHandler,useClass:AppErrorHandler} ],
   bootstrap: [AppComponent]

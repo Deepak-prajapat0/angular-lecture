@@ -1,11 +1,17 @@
-<div class="w-96 m-auto p-4 min-h-[20rem] flex flex-col gap-6 border ">
-    <h1 class="text-center">Todo app</h1>
+<mat-card class="w-96 m-auto p-4 min-h-[20rem] flex flex-col gap-6 border ">
+    <mat-card-header class="text-center">Todo app</mat-card-header>
+   <mat-card-content>
     <form>
-        <input type="text" class="p-1 border-b border-blue-400 outline-0" placeholder="Press Enter to add" (keyup.enter)="addTodo(todo)" #todo >
+        <mat-form-field appearance="fill" style="display: block;">
+            <mat-label>Enter Todo task</mat-label>
+            <input matInput  placeholder="Press Enter to add" required (keyup.enter)="addTodo(todo)" #todo >
+            <mat-error>Please enter field</mat-error>
+          </mat-form-field>
     </form>
-    <ul>
-        <li *ngFor="let todo of todos.controls ;index as i" (click)="removeTodo(i)" class="m-1 border" >
+    <mat-list>
+        <mat-list-item  *ngFor="let todo of todos.controls ;index as i" (click)="removeTodo(i)" class="m-1 border" >
            {{todo.value}}
-        </li>
-    </ul>
-</div>
+        </mat-list-item>
+    </mat-list>
+   </mat-card-content>
+</mat-card>

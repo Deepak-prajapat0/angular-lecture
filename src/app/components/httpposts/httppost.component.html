@@ -1,23 +1,25 @@
-<div >
+<mat-card >
+<mat-card-content>
     <h1 class="text-center text-3xl">Posts from server</h1>
-<div class="p-4 text-center">
-    <label for="title"> Enter post title</label>
-<input type="text" id="title" class="p-2 mx-2 border outline-sky-400 hover:border-sky-400" (keyup.enter)="createPost(title)" #title>
-</div>
-<div class="w-max m-auto flex flex-col gap-2">
-    <!-- <button *ngFor="let post of posts" class="p-2 border"  >
-        {{post.title}}
-        <button (click)="deletePost(post)" class="p-1 px-2 mr-6 float-right rounded-md border border-sky-600 hover:bg-sky-600 hover:text-white">delete</button>
-        <button (click)="updatePost(post)" class="p-1 px-2 mr-6 float-right rounded-md border border-sky-600 hover:bg-sky-600 hover:text-white">update</button>
-    </button> -->
-    <mat-list @slideAnimation >
-        <mat-list-item *ngFor="let post of posts">
+    <div class="p-4 text-center">
+        <label for="title"> Enter post title</label>
+    <input type="text" id="title" class="p-2 mx-2 border outline-sky-400 hover:border-sky-400" (keyup.enter)="createPost(title)" #title>
+    </div>
+    <!-- <div  class="w-max m-auto flex flex-col gap-2"> -->
+        <!-- <button *ngFor="let post of posts" class="p-2 border"  >
             {{post.title}}
-        </mat-list-item>
+            <button (click)="deletePost(post)" class="p-1 px-2 mr-6 float-right rounded-md border border-sky-600 hover:bg-sky-600 hover:text-white">delete</button>
+            <button (click)="updatePost(post)" class="p-1 px-2 mr-6 float-right rounded-md border border-sky-600 hover:bg-sky-600 hover:text-white">update</button>
+        </button> -->
+        <mat-list style="z-index: -1;" >
+            <mat-list-item @slideAnimation  *ngFor="let post of posts">
+                {{post.title}}
+            </mat-list-item>
+    
+        </mat-list>
+    
+    
+    <!-- </div>/ -->
+</mat-card-content>
 
-    </mat-list>
-
-
-</div>
-
-</div>
+</mat-card>

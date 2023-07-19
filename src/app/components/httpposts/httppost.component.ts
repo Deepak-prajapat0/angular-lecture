@@ -9,11 +9,11 @@ import { animate, animateChild, query, style, transition, trigger } from '@angul
   animations:[
     trigger('slideAnimation',[
       transition(':enter',[
-        style({offset:.2,transform:"scale(.6)",easing:"ease-out"}),
+        style({offset:.2,transform:"translateX(50px)",easing:"ease-out"}),
         animate(500)
       ]),
       transition(':leave',[
-        style({transform:"scale(1)",easing:"ease-out"}),
+        style({transform:"translateX(0px)",easing:"ease-out"}),
         animate(500)
       ])
     ])

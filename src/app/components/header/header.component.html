@@ -1,13 +1,20 @@
-<header class="p-3 bg-gray-900 text-white">
-    <nav class="w-full flex flex-row justify-between ">
-        <ul class="flex flex-row gap-3 overflow-x-auto">
-            <li *ngFor="let link of links" class="w-max p-1 px-2" >
-                <a routerLink="{{link.link}}" class="w-max block  border-b ">{{link.name}}</a>
-            </li>
-        </ul>
-        <ul class="p-1 mr-2 flex flex-row gap-2">
-            <li *ngIf="!loggedIn" (click)="openDialog()" class="p-1 px-2 border border-white rounded-md hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in">Login</li>
-            <li *ngIf="loggedIn" (click)="logout()" class="p-1 px-2 border border-white rounded-md hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in" >Logout</li>
-        </ul>
-    </nav>
-</header>
+<mat-toolbar color="primary" class="flex flex-row justify-between text-sm">
+    <button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    <mat-drawer-container class="example-container" style="position: unset;" hasBackdrop="over">
+        <mat-drawer   #drawer mode="over" style="padding: 3rem 10px 3px; width: 15rem; position: absolute; left: 0;  background-color: #3f51b5">
+            <ul  class="flex flex-col gap-3 overflow-x-auto">
+                <li *ngFor="let link of links" class="w-full text-white rounded hover:bg-[#39489e]" (click)="drawer.close()" >
+                    <a routerLink="{{link.link}}" class="w-full p-2 px-3 block ">{{link.name}}</a>
+                </li>
+            </ul>
+          
+        </mat-drawer>
+      </mat-drawer-container>
+
+    <ul class="p-1 mr-2 flex flex-row gap-2">
+        <li *ngIf="!loggedIn" (click)="openDialog()" class="p-1 px-2 border border-white rounded-sm hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in">Login</li>
+        <li *ngIf="loggedIn" (click)="logout()" class="p-1 px-2 border border-white rounded-sm hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in" >Logout</li>
+    </ul>
+  </mat-toolbar>

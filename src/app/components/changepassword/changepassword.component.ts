@@ -26,4 +26,8 @@ export class ChangepasswordComponent {
   get confirmPassword(){ 
     return this.form.get('confirmPassword')
   }
+
+  done(){
+    console.log(this.form)
+  }
 }
