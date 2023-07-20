@@ -1,20 +1,19 @@
-<mat-toolbar color="primary" class="flex flex-row justify-between text-sm">
+<mat-toolbar color="primary" style="display: flex; flex-direction: row; justify-content: space-between; position: absolute; top: 0; left: 0; z-index: 300; font-size: 14px; ">
     <button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
-      </button>
-    <mat-drawer-container class="example-container" style="position: unset;" hasBackdrop="over">
-        <mat-drawer   #drawer mode="over" style="padding: 3rem 10px 3px; width: 15rem; position: absolute; left: 0;  background-color: #3f51b5">
+    </button>
+    <ul class="p-1 mr-2 flex flex-row gap-2">
+        <li *ngIf="!loggedIn" (click)="openDialog()" class=" px-3 border border-white rounded-sm hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in">Login</li>
+        <li *ngIf="loggedIn" (click)="logout()" class="px-3 border border-white rounded-sm hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in" >Logout</li>
+    </ul>
+  </mat-toolbar>
+<mat-drawer-container class="example-container" style="position: initial ;top: 0; left: 0;  " hasBackdrop="over">
+        <mat-drawer   style="padding-top: 5rem; width: 15rem;  position: absolute; top: 0; left: 0; background-color: #3f51b5;" #drawer mode="over" >
+            <mat-divider></mat-divider>
             <ul  class="flex flex-col gap-3 overflow-x-auto">
                 <li *ngFor="let link of links" class="w-full text-white rounded hover:bg-[#39489e]" (click)="drawer.close()" >
                     <a routerLink="{{link.link}}" class="w-full p-2 px-3 block ">{{link.name}}</a>
                 </li>
             </ul>
-          
         </mat-drawer>
-      </mat-drawer-container>
-
-    <ul class="p-1 mr-2 flex flex-row gap-2">
-        <li *ngIf="!loggedIn" (click)="openDialog()" class="p-1 px-2 border border-white rounded-sm hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in">Login</li>
-        <li *ngIf="loggedIn" (click)="logout()" class="p-1 px-2 border border-white rounded-sm hover:bg-white hover:text-gray-950 cursor-pointer transition-colors delay-75 ease-in" >Logout</li>
-    </ul>
-  </mat-toolbar>
+</mat-drawer-container>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 
 @Component({
@@ -18,6 +19,15 @@ export class FavoriteComponent{
   @Input("likesCount") likesCount:number=0
   @Output() change = new EventEmitter()
   
+count!:number
+  constructor(private store:Store<{counter:{counter:number}}>){
+    
+  }
+ngOnInit(){
+  this.store.select('counter').subscribe(data=>{
+    this.count = data.counter
+  })
+}
 
   onClick(){
 

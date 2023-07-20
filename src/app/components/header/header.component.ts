@@ -4,6 +4,7 @@ import { UserService } from '../reactiveForm/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterForm } from '../registerForm/registerForm.component';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Store } from '@ngrx/store';
 
 
 const routerLinks =[{ name: "Home",link: "/"},
@@ -20,8 +21,7 @@ const routerLinks =[{ name: "Home",link: "/"},
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls:['./header.component.css'],
+  templateUrl: './header.component.html'
 })
 
 export class HeaderComponent {
@@ -31,14 +31,15 @@ export class HeaderComponent {
 
 
  openDialog() {
-   const dialogRef = this.dialog.open(RegisterForm);
+ this.dialog.open(RegisterForm);
 
-   dialogRef.afterClosed().subscribe(result => {
-     console.log(`Dialog result: ${result}`);
-   });
+  //  dialogRef.afterClosed().subscribe(result => {
+  //    console.log(`Dialog result: ${result}`);
+  //  });
  }
 
  ngOnInit(){
+  
     this.router.events.subscribe((val:any)=>{
       if(val.url){
         if(localStorage.getItem('token') ){

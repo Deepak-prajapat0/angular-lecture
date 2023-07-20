@@ -1,26 +1,3 @@
-<!-- <div class=" m-2 my-6 h-32" title="shipping details">
-
-    <div (click)="toggle()" class="p-4 border">
-        shipping details content
-
-        <span>
-            <i class="fa-sharp fa-solid float-right cursor-pointer " [class.fa-caret-down]="!isExpended"
-            [ngClass]="{
-                'fa-caret-up':'isExpended',
-                'fa-caret-down':'!isExpended'
-            }"
-            
-            ></i>
-        </span>
-    </div>
-    <div *ngIf="isExpended" class="p-4 border">
-        <ng-content></ng-content>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex, minus corporis dolores veritatis cupiditate debitis in facilis nobis animi.
-            
-        </p>
-    </div>
-</div> -->
-
 <mat-expansion-panel>
 <mat-expansion-panel-header>
 <mat-panel-title>
@@ -29,3 +6,23 @@ Self aware panel
 </mat-expansion-panel-header>
 <p>I'm visible because I am open</p>
 </mat-expansion-panel>
+
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Counter App with redux {{counterDisplay}}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card-actions>
+            <input type="text" matInput [(ngModel)]="counterInput" (keyup.enter)="add()" (keyup.esc)="onReset()">
+            <button mat-button (click)="add()" >Add</button>
+        </mat-card-actions>
+        <mat-card-actions class="flex flex-row gap-3">
+            <button (click)="onIncrement()"  mat-raised-button color="primary">increment</button>
+            <button (click)="onDecrement()"  mat-raised-button color="primary">decrement</button>
+            <button (click)="onReset()"  mat-raised-button color="primary">reset</button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>

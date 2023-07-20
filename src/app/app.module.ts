@@ -20,8 +20,7 @@ import { GithubprofileComponent } from './components/githubprofile/githubprofile
 import { WrongurlComponent } from './components/wrongurl/wrongurl.component';
 import { RouterComponent } from './components/router/router.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
-// import { DataService } from './components/httpposts/dataService.service';
-import { provideFirebaseApp,getApp,initializeApp } from '@angular/fire/app';
+import { provideFirebaseApp,initializeApp } from '@angular/fire/app';
 import {getFirestore,provideFirestore} from '@angular/fire/firestore'
 import { environment } from 'src/environment/environment';
 import { FirebaseComponent } from './components/firebase/firebase.component';
@@ -40,6 +39,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './shared/store/counter.reducers';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -85,7 +87,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    MatMenuModule,
+    StoreModule.forRoot({counter:counterReducer})
   ],
   providers: [ AppErrorHandler,{provide:ErrorHandler,useClass:AppErrorHandler} ],
   bootstrap: [AppComponent]

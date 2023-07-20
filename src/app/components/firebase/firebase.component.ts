@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Firestore, addDoc, collectionData, doc } from '@angular/fire/firestore';
+import { Firestore, addDoc, collectionData } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { collection } from 'firebase/firestore';
 
